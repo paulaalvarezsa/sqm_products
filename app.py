@@ -16,7 +16,7 @@ with st.sidebar:
     # Filtro de orden en el sidebar
     order = st.selectbox("Selecciona un orden:", ["Ascendente", "Descendente"])
 
-    categories = st.multiselect('Selecciona varias etiquetas', list_categories)
+    # categories = st.multiselect('Selecciona varias etiquetas', list_categories)
 
 # Filtro de cantidad en el sidebar
 # with st.sidebar:
@@ -41,8 +41,8 @@ def convert_df(input_df, price_min, price_max, order):
 
     df = df.set_index('Imagen')
 
-    mask_categories = df['Categoría'].isin(categories)
-    df = df[mask_categories].copy()
+    # mask_categories = df['Categoría'].isin(categories)
+    # df = df[mask_categories].copy()
 
     df = df.to_html(escape=False, formatters={'__index__':path_to_image_html, 'URL': process_url})
     
